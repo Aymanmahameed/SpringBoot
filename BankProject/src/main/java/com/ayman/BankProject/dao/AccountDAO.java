@@ -9,5 +9,7 @@ import com.ayman.BankProject.beans.Account;
 public interface AccountDAO extends JpaRepository<Account, Integer>{
 	
 	Account findAcoountByAccountId(Integer id);
+	Account findAcoountByAccountNumber(Integer number);
+	
 
 }
