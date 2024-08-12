@@ -19,6 +19,11 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "customer_id")
 	private Integer customerId;
+	
+	
+	
+	@Column(name = "id_number")
+	private Integer IdNumber;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -55,6 +60,37 @@ public class Customer {
 
 	public Customer() {
 
+	}
+
+	public Customer(Integer idNumber, String firstName, String lastName, String city, String street, String userName,
+			String password, Date birthDay) {
+		super();
+		IdNumber = idNumber;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.city = city;
+		this.street = street;
+		this.userName = userName;
+		this.password = password;
+		this.birthDay = birthDay;
+	}
+
+	public Customer(Integer customerId, Integer idNumber, String firstName, String lastName, String city, String street,
+			String userName, String password, Date birthDay, List<Account> accounts, List<Loan> loans,
+			List<EmailNotification> emailNotifications) {
+		super();
+		this.customerId = customerId;
+		IdNumber = idNumber;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.city = city;
+		this.street = street;
+		this.userName = userName;
+		this.password = password;
+		this.birthDay = birthDay;
+		this.accounts = accounts;
+		this.loans = loans;
+		this.emailNotifications = emailNotifications;
 	}
 
 	public Customer(String firstName, String lastName, String city, String street, String userName, String password,
@@ -135,9 +171,10 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [customeId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", city="
-				+ city + ", street=" + street + ", userName=" + userName + ", password=" + password + ", birthDay="
-				+ birthDay + "]";
+		return "Customer [customerId=" + customerId + ", IdNumber=" + IdNumber + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", city=" + city + ", street=" + street + ", userName=" + userName
+				+ ", password=" + password + ", birthDay=" + birthDay + ", accounts=" + accounts + ", loans=" + loans
+				+ ", emailNotifications=" + emailNotifications + "]";
 	}
 
 }

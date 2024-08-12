@@ -24,6 +24,11 @@ public class Account {
 	@Column(name="account_id")
 	private Integer accountId;
 	
+	
+	@Column(name = "account_number")
+	private Integer accountNumber;
+	
+	
 	@Column(name = "account_type")
 	private String accountType; 
 	
@@ -52,6 +57,32 @@ public class Account {
 	
 	
 	
+	public Account(Integer accountNumber, String accountType, float balance, Status status) {
+		super();
+		this.accountNumber = accountNumber;
+		this.accountType = accountType;
+		this.balance = balance;
+		this.status = status;
+	}
+
+
+
+
+	public Account(Integer accountId, Integer accountNumber, String accountType, float balance, Status status,
+			List<Transaction> transactions, Customer customer) {
+		super();
+		this.accountId = accountId;
+		this.accountNumber = accountNumber;
+		this.accountType = accountType;
+		this.balance = balance;
+		this.status = status;
+		this.transactions = transactions;
+		this.customer = customer;
+	}
+
+
+
+
 	public Account(String accountType, float balance, Status status) {
 		super();
 		this.accountType = accountType;
@@ -94,10 +125,25 @@ public class Account {
 		this.status = status;
 	}
 
+	public Integer getAccountNumber() {
+		return accountNumber;
+	}
+
+
+
+
+	public void setAccountNumber(Integer accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "Account [accountId=" + accountId + ", accountType=" + accountType + ", balance=" + balance + ", status="
-				+ status + "]";
+		return "Account [accountId=" + accountId + ", accountNumber=" + accountNumber + ", accountType=" + accountType
+				+ ", balance=" + balance + ", status=" + status + ", transactions=" + transactions + ", customer="
+				+ customer + "]";
 	}
 	
 	

@@ -23,6 +23,10 @@ public class Transaction {
 	@Column(name="transaction_id")
 	private Integer transactionId;
 	
+	
+	@Column(name="transaction_number")
+	private Integer tranNumber;
+	
 	@Column(name = "transaction_date")
 	private Date transactionDate;
 	
@@ -43,6 +47,30 @@ public class Transaction {
 	private Currency currency;
 	
 	
+
+	public Transaction(Integer tranNumber, Date transactionDate, float amount, TransactionType transactionsType) {
+		super();
+		this.tranNumber = tranNumber;
+		this.transactionDate = transactionDate;
+		this.amount = amount;
+		this.transactionsType = transactionsType;
+	}
+
+
+
+	public Transaction(Integer transactionId, Integer tranNumber, Date transactionDate, float amount,
+			TransactionType transactionsType, Account account, Currency currency) {
+		super();
+		this.transactionId = transactionId;
+		this.tranNumber = tranNumber;
+		this.transactionDate = transactionDate;
+		this.amount = amount;
+		this.transactionsType = transactionsType;
+		this.account = account;
+		this.currency = currency;
+	}
+
+
 
 	public Transaction() {
 		super();
@@ -91,8 +119,9 @@ public class Transaction {
 
 	@Override
 	public String toString() {
-		return "Transaction [transactionId=" + transactionId + ", transactionDate=" + transactionDate + ", amount="
-				+ amount + ", transactionsType=" + transactionsType + "]";
+		return "Transaction [transactionId=" + transactionId + ", tranNumber=" + tranNumber + ", transactionDate="
+				+ transactionDate + ", amount=" + amount + ", transactionsType=" + transactionsType + ", account="
+				+ account + ", currency=" + currency + "]";
 	}
 	
 	
