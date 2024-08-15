@@ -130,8 +130,6 @@ public class Account {
 	}
 
 
-
-
 	public void setAccountNumber(Integer accountNumber) {
 		this.accountNumber = accountNumber;
 	}
